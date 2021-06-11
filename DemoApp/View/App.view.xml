@@ -1,0 +1,123 @@
+<mvc:view
+controllerName="DemoApp.Controller.App"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:table="sap.ui.table"
+xmlns:viz="sap.viz.ui5.controls"
+xmlns:commons="sap.ui.commons"
+xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout"
+xmlns="sap.m">           
+<App>
+	<Page>
+	<customHeader>
+		<Bar id="kraPageBar">
+			<contentLeft>			
+			<Image src="/XMII/CM/SMT_TRAINING/Vignesh/ME TASKS/EVALUATION/Images/RITS LOGO.jpg" width="6vw" height="3vw" />	
+			</contentLeft>
+			<contentMiddle>
+		 		<Text text = "Viz Chart Demo App" />
+			</contentMiddle>
+			<contentRight>
+		 		<Text text = "" id="date"/>
+				<Text text = "" id="userName"/>
+    	             	        <Button text="" id = "logout" icon = "sap-icon://log" press="logout"/>
+			</contentRight>		
+		</Bar>
+	</customHeader>
+
+	    <l:BlockLayout class="sapUiResponsiveMargin" id="BlockLayoutTwo">
+	        <l:BlockLayoutRow>
+
+				<l:BlockLayoutCell width="1" class="wcLabel" id="idCell9">			   
+				<List
+					headerText="Measure"
+					mode="MultiSelect"
+					id="MeasureList"
+					selectionChange="onSelectionChange"
+					includeItemInSelection="true">
+					<StandardListItem
+						id="Profit"
+						title="Profit"
+						description="profit"
+						selected="true"/>
+					<StandardListItem
+						id="Cost"
+						title="Cost"
+						description="cost"
+						selected="true"/>
+					<StandardListItem
+						id="Revenue"
+						title="Revenue"
+						description="revenue"
+						selected="true"/>
+				</List>
+				<Panel headerText="Chart Type">
+					<Select
+						id="select"
+						change="onChartTypeChanged"
+						width="100%">
+						<items>
+							<core:Item text="Line" key="line"/>
+						</items>
+						<items>
+							<core:Item text="Bar" key="bar"/>
+						</items>
+						<items>
+							<core:Item text="Column" key="column"/>
+						</items>
+						<items>
+							<core:Item text="Stacked Column" key="stacked_column" />
+						</items>
+					</Select>
+					<Select
+						id="selectColor"
+						change="onChartColorChanged"
+						width="100%">
+						<items>
+							<core:Item text="Default Color" key="Default_Color"/>
+						</items>
+						<items>
+							<core:Item text="Semantic Color" key="Semantic_Color"/>
+						</items>
+					</Select>
+				</Panel>
+				<Panel headerText="Popover Effect">
+					<Select
+						id="selectPopover"
+						change="onPopoverChanged"
+						width="100%">
+						<items>
+							<core:Item text="Default" key="Default"/>
+						</items>
+						<items>
+							<core:Item text="Customer Popover" key="Customer_Popover"/>
+						</items>
+					</Select>
+				</Panel>
+				</l:BlockLayoutCell>
+
+					<l:BlockLayoutCell width="3" class="wcLabel" id="i1">
+					<ScrollContainer height="100%" width="100%" horizontal="false" vertical="true" focusable="true">
+ 						<Bar id="PageBar1">
+							<contentLeft>			
+							</contentLeft>
+							<contentMiddle>
+								<Text text =""  id="heading1"/>
+							</contentMiddle>
+							<contentRight>
+							</contentRight>		
+						</Bar>
+
+						<viz:Popover id="idPopOver"></viz:Popover>
+
+						<viz:VizFrame id="SelectedChartid1" uiConfig="{applicationSet:'fiori'}"  width="100%" height="550px">
+						</viz:VizFrame>
+					</ScrollContainer>
+				</l:BlockLayoutCell>
+
+			</l:BlockLayoutRow>	
+		</l:BlockLayout>  
+	</Page>
+</App>
+</mvc:view>
